@@ -6,7 +6,7 @@ from sqlalchemy.orm import sessionmaker, DeclarativeBase
 engine = create_engine("sqlite:///taskmanager.db", echo=True)
 
 # Создание локальной сессии
-SessionLocal = sessionmaker(bind=engine)
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 # Создание базового класса Base для других моделей,
 # наследуясь от DeclarativeBase
